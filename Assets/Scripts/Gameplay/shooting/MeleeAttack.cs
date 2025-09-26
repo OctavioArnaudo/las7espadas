@@ -1,31 +1,15 @@
 using UnityEngine;
-using UnityEngine.AI;
 
-[
-    RequireComponent(
-        typeof(NavMeshAgent)
-    )
-]
-public class MeleeAttack : MonoBehaviour
+public class MeleeAttack : MonoController
 {
-    protected NavMeshAgent agent;
-
     protected float lastAttackTime;
     public float attackRange = 5f;
     public float attackTime = 1.5f;
     public float damage = 10f;
 
-    public Transform targetPoint;
-    public float targetDistance;
-
-    protected virtual void Awake()
+    protected override void Update()
     {
-        agent = GetComponent<NavMeshAgent>();
-    }
-
-    protected virtual void Update()
-    {
-        targetDistance = Vector3.Distance(transform.position, targetPoint.position);
+        base.Update();
         if (targetDistance <= attackRange)
         {
             agent.ResetPath();

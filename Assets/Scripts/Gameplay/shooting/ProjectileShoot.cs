@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class ProjectileShoot : MeleeAttack
 {
-    [SerializeField] public float projectileSpeed = 10f;
-    [SerializeField] public GameObject projectilePrefab;
+    public float projectileSpeed = 10f;
 
     public void ShootProjectile(GameObject projectile = null, Vector3? origin = null, Transform target = null, float? maxSpeed = null)
     {
