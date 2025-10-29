@@ -1,3 +1,3 @@
-public class MonoController : PanelShow
+public class MonoController : GameReload
 {
 }

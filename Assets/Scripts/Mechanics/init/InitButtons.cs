@@ -1,5 +1,7 @@
 using UnityEngine.UI;
+using System;
 
+[Serializable]
 public class InitButtons : InitAudio
 {
     public Button respawnButton;

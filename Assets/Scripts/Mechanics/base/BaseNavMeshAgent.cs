@@ -8,7 +8,21 @@ using UnityEngine.AI;
 ]
 public class BaseNavMeshAgent : BaseMixer
 {
-    protected NavMeshAgent agent;
+    [SerializeField] protected NavMeshAgent agent;
+
+    /// <summary>
+    /// 
+    /// The PatrolPath defines the path that the enemy will follow.
+    /// 
+    /// </summary>
+    [SerializeField] protected PatrolPath path;
+
+    /// <summary>
+    /// 
+    /// The mover is used to control the enemy's movement along the patrol path.
+    /// 
+    /// </summary>
+    [SerializeField] protected internal PatrolPath.Mover mover;
 
     protected override void Awake()
     {

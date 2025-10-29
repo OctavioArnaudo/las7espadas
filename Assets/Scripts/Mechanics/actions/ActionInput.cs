@@ -5,16 +5,24 @@ public class ActionInput : ActionDisable
 {
     protected Vector2 displacementInput;
     protected Vector2 jumpInput;
+    protected float scrollInput;
 
     protected override void Update()
     {
         base.Update();
         try
         {
-            displacementInput.x = Input.GetAxis("Horizontal");
-            displacementInput.x = Input.GetAxisRaw("Horizontal");
-            jumpInput.y = Input.GetAxis("Jump");
-            jumpInput.y = Input.GetAxisRaw("Jump");
+            horizontalInput = Input.GetAxis(axisName: "Horizontal");
+            displacementInput.x = horizontalInput;
+            horizontalInput = Input.GetAxisRaw(axisName: "Horizontal");
+            displacementInput.x = horizontalInput;
+            verticalInput = Input.GetAxis(axisName: "Vertical");
+            displacementInput.y = verticalInput;
+            verticalInput = Input.GetAxisRaw(axisName: "Vertical");
+            displacementInput.y = verticalInput;
+            jumpInput.y = Input.GetAxis(axisName: "Jump");
+            jumpInput.y = Input.GetAxisRaw(axisName: "Jump");
+            scrollInput = Input.GetAxis(axisName: "Mouse ScrollWheel");
         }
         catch (System.Exception)
         {

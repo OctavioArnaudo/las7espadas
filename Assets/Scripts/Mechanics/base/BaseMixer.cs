@@ -8,7 +8,7 @@ using UnityEngine.Audio;
         )
     )
 ]
-public class BaseMixer : BaseContactFilter2D
+public class BaseMixer : BaseLayerMask
 {
     [SerializeField] public AudioMixer mixer;
 }

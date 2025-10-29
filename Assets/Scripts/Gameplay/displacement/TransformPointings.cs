@@ -1,15 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TransformPointings : MonoController
+public class TransformPointings : JumpFall
 {
     public Dictionary<string, List<Transform>> transformsByTag = new Dictionary<string, List<Transform>>();
 
     [SerializeField]
     public List<string> selectedTags = new List<string>();
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         transformsByTag.Clear();
 
         foreach (string tag in selectedTags)

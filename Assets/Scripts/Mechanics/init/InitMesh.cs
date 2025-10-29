@@ -2,7 +2,8 @@ using System;
 using TMPro;
 using UnityEngine;
 
-public class InitMesh : InitFsm
+[Serializable]
+public class InitMesh : InitLayer
 {
 
     [Header("UI TextMeshPro")]

@@ -1,0 +1,15 @@
+﻿// This file is used by Code Analysis to maintain SuppressMessage
+// attributes that are applied to this project.
+// Project-level suppressions either have no target or are given
+// a specific target and scoped to a namespace, type, member, etc.
+
+using System.Diagnostics.CodeAnalysis;
+
+[assembly: SuppressMessage("Domain reload", "UDR0001:Domain Reload Analyzer", Justification = "<pendiente>", Scope = "member", Target = "~F:Init2D.OnGlobalDetecting")]
+[assembly: SuppressMessage("Domain reload", "UDR0001:Domain Reload Analyzer", Justification = "<pendiente>", Scope = "member", Target = "~F:Init2D.OnGlobalObjectDetecting")]
+[assembly: SuppressMessage("Domain reload", "UDR0001:Domain Reload Analyzer", Justification = "<pendiente>", Scope = "member", Target = "~F:Init2D.OnGlobalObjectInspected")]
+[assembly: SuppressMessage("Domain reload", "UDR0001:Domain Reload Analyzer", Justification = "<pendiente>", Scope = "member", Target = "~F:KnapsackModel.instance")]
+[assembly: SuppressMessage("Domain reload", "UDR0001:Domain Reload Analyzer", Justification = "<pendiente>", Scope = "member", Target = "~F:MonoComponent.instance")]
+[assembly: SuppressMessage("Domain reload", "UDR0001:Domain Reload Analyzer", Justification = "<pendiente>", Scope = "member", Target = "~F:Simulation.Event`1.OnExecute")]
+[assembly: SuppressMessage("Domain reload", "UDR0001:Domain Reload Analyzer", Justification = "<pendiente>", Scope = "member", Target = "~F:Simulation.eventPools")]
+[assembly: SuppressMessage("Domain reload", "UDR0001:Domain Reload Analyzer", Justification = "<pendiente>", Scope = "member", Target = "~F:Simulation.eventQueue")]

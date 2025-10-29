@@ -5,7 +5,7 @@ using UnityEngine;
         typeof(SpriteRenderer)
     )
 ]
-public class BaseSpriteRenderer : BaseRigidbody2D
+public class BaseSpriteRenderer : BaseSlider
 {
     [SerializeField] protected SpriteRenderer sr;
 

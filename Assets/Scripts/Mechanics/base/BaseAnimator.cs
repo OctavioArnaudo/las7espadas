@@ -7,10 +7,10 @@ using UnityEngine;
 ]
 public class BaseAnimator : MonoComponent
 {
-    [SerializeField] protected Animator animatorComponent;
+    [SerializeField] protected Animator animComponent;
     protected override void Awake()
     {
         base.Awake();
-        animatorComponent = GetComponent<Animator>();
+        animComponent = GetComponent<Animator>();
     }
 }

@@ -1,56 +1,61 @@
+using System;
 using UnityEngine;
 
-public class InitAnimator : BaseSpriteRenderer
+[Serializable]
+public class InitAnimator : Init3D
 {
-    [AnimatorModel("AttackType")][SerializeField] protected int attackType = 0; // 0 = ninguno, 1 = melee, 2 = ranged
-    [AnimatorModel("canDash")][SerializeField] protected bool canDash;
-    [AnimatorModel("Health")][SerializeField] public int currentHP = 1;
-    [AnimatorModel("Health")][SerializeField] public int maxHP = 1;
-    [AnimatorModel("hurtPressed")][SerializeField] protected bool hurtPressed;
-    [AnimatorModel("isAlive")][SerializeField] protected bool isAlive;
-    [AnimatorModel("IsAttacking")][SerializeField] protected bool isAttacking = false;
-    [AnimatorModel("isBroken")][SerializeField] protected bool isBroken;
-    [AnimatorModel("isDashing")][SerializeField] protected bool isDashing;
-    [AnimatorModel("IsDead")][SerializeField] protected bool isDead = false;
-    [AnimatorModel("isDefeated")][SerializeField] protected bool isDefeated;
-    [AnimatorModel("isGameOver")][SerializeField] protected bool isGameOver;
-    [AnimatorModel("isGrounded")][SerializeField] protected bool isGrounded;
-    [AnimatorModel("IsHurt")][SerializeField] protected bool isHurt = false;
-    [AnimatorModel("IsIdle")][SerializeField] protected bool isIdle = false;
-    [AnimatorModel("isInFlight")][SerializeField] protected bool isInFlight;
-    [AnimatorModel("isInPursuit")][SerializeField] protected bool isInPursuit = false;
-    [AnimatorModel("isInvulnerable")][SerializeField] protected bool isInvulnerable;
-    [AnimatorModel("isJumping")][SerializeField] protected bool isJumping;
-    [AnimatorModel("isLanded")][SerializeField] protected bool isLanded;
-    [AnimatorModel("isLanding")][SerializeField] protected bool isLanding;
-    [AnimatorModel("isPatrolling")][SerializeField] protected bool isPatrolling = true;
-    [AnimatorModel("isPreparingToJump")][SerializeField] protected bool isPreparingToJump;
-    [AnimatorModel("isRespawning")][SerializeField] protected bool isRespawning;
-    [AnimatorModel("isRunning")][SerializeField] protected bool isRunning;
-    [AnimatorModel("isTouchingWall")][SerializeField] protected bool isTouchingWall;
-    [AnimatorModel("isVictorious")][SerializeField] protected bool isVictorious;
-    [AnimatorModel("isWalking")][SerializeField] protected bool isWalking;
-    [AnimatorModel("isWallSliding")][SerializeField] protected bool isWallSliding;
-    [AnimatorModel("jumpPressed")][SerializeField] protected bool jumpPressed = false;
-    [AnimatorModel("jumpReleased")][SerializeField] protected bool jumpReleased = false;
-    [AnimatorModel("spawnPressed")][SerializeField] protected bool spawnPressed;
-
-    [Range(2F, 6F)]
-    protected float maxJumpSpeed = 6F;
-    [Range(1F, 9.81F)]
-    protected float jumpDeceleration = 2F;
-    [AnimatorModel("Speed")]
-    [SerializeField]
-    [Range(2F, 6F)]
-    public float maxMoveSpeed = 6F;
-    [Range(2F, 15F)]
-    public float moveAcceleration = 3F;
-
-    protected string currentState = "";
-
-    protected override void Update()
-    {
-        base.Update();
-        isAlive = currentHP > 0;
-    }
+    [Header("Animator Model Parameters")]
+    [AnimatorModel("AttackType")][Range(0F, 2F)] public int attackType = 0; // 0 = ninguno, 1 = melee, 2 = ranged
+    [AnimatorModel("CanDash")] public bool canDash;
+    [AnimatorModel("DashCooldown")] public float dashCooldown;
+    [AnimatorModel("DashDuration")] public float dashDuration;
+    [AnimatorModel("DashForce")] public float dashForce;
+    [AnimatorModel("EmitOn")] public bool emitOnCharacterDeath = true;
+    [AnimatorModel("Health")] public int currentHP = 1;
+    [AnimatorModel("Health")] public int maxHP = 1;
+    [AnimatorModel("Horizontal")] public float horizontalInput;
+    [AnimatorModel("HurtPressed")] public bool hurtPressed;
+    [AnimatorModel("IsAlive")] public bool isAlive;
+    [AnimatorModel("IsAttacking")] public bool isAttacking = false;
+    [AnimatorModel("IsBroken")] public bool isBroken;
+    [AnimatorModel("IsDashing")] public bool isDashing;
+    [AnimatorModel("IsDead")] public bool isDead = false;
+    [AnimatorModel("IsDefeated")] public bool isDefeated;
+    [AnimatorModel("IsFlippedX")] public bool isFlippedX;
+    [AnimatorModel("IsGameOver")] public bool isGameOver;
+    [AnimatorModel("IsGrounded")] public bool isGrounded;
+    [AnimatorModel("IsHurt")] public bool isHurt = false;
+    [AnimatorModel("IsIdle")] public bool isIdle = false;
+    [AnimatorModel("IsInFlight")] public bool isInFlight;
+    [AnimatorModel("IsInPursuit")] public bool isInPursuit = false;
+    [AnimatorModel("IsInvulnerable")] public bool isInvulnerable;
+    [AnimatorModel("IsJumping")] public bool isJumping;
+    [AnimatorModel("IsLanded")] public bool isLanded;
+    [AnimatorModel("IsLanding")] public bool isLanding;
+    [AnimatorModel("IsMoving")] public bool isMoving;
+    [AnimatorModel("IsPatrolling")] public bool isPatrolling = true;
+    [AnimatorModel("IsPreparingToJump")] public bool isPreparingToJump;
+    [AnimatorModel("IsRespawning")] public bool isRespawning;
+    [AnimatorModel("IsRunning")] public bool isRunning;
+    [AnimatorModel("IsTouchingWall")] public bool isTouchingWall = false;
+    [AnimatorModel("IsVictorious")] public bool isVictorious;
+    [AnimatorModel("IsWalking")] public bool isWalking;
+    [AnimatorModel("IsWallSliding")] public bool isWallSliding = false;
+    [AnimatorModel("JumpDeceleration")][Range(1F, 9.81F)] public float jumpDeceleration = 2F;
+    [AnimatorModel("JumpPressed")] public bool jumpPressed = false;
+    [AnimatorModel("JumpReleased")] public bool jumpReleased = false;
+    [AnimatorModel("JumpSpeed")][Range(2F, 6F)] public float jumpSpeed = 6F;
+    [AnimatorModel("LifeTime")] public float lifetime = 2f;
+    [AnimatorModel("MenuShown")] public bool menuShown = false;
+    [AnimatorModel("MoveAcceleration")][Range(2F, 15F)] public float moveAcceleration = 3F;
+    [AnimatorModel("MoveSpeed")][Range(2F, 6F)] public float moveSpeed = 6F;
+    [AnimatorModel("POV")] public float fov;
+    [AnimatorModel("SpawnDelay")] public float spawnDelay = 1f;
+    [AnimatorModel("SpawnDistance")] public float spawnDistance = 0F;
+    [AnimatorModel("SpawnPressed")] public bool spawnPressed;
+    [AnimatorModel("SpawnSize")] public int spawnSize = 1;
+    [AnimatorModel("SpawnSpeed")] public float spawnSpeed = 10f;
+    [AnimatorModel("Vertical")] public float verticalInput;
+    [AnimatorModel("WallDirX")] public int wallDirX;
+    [AnimatorModel("WallSlideSpeed")] public float wallSlideSpeed = 2F;
 }

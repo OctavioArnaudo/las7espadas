@@ -1,33 +1,73 @@
 using UnityEngine;
+using System;
 
+[Serializable]
 public class InitPrefab : InitParticle
 {
-    [SerializeField] public GameObject ammoPickupPrefab;
-    [SerializeField] public GameObject barrelPrefab;
-    [SerializeField] public GameObject boulderPrefab;
-    [SerializeField] public GameObject breakableWallPrefab;
-    [SerializeField] public GameObject breakEffectPrefab;
-    [SerializeField] public GameObject buttonPrefab;
-    [SerializeField] public GameObject checkpointPrefab;
-    [SerializeField] public GameObject cratePrefab;
-    [SerializeField] public GameObject doorPrefab;
-    [SerializeField] public GameObject elevatorPrefab;
-    [SerializeField] public GameObject flameTrapPrefab;
-    [SerializeField] public GameObject healthPickupPrefab;
-    [SerializeField] public GameObject leverPrefab;
-    [SerializeField] public GameObject meleeEnemyPrefab;
-    [SerializeField] public GameObject movingPlatformPrefab;
-    [SerializeField] public GameObject oneWayPlatformPrefab;
-    [SerializeField] public GameObject platformPathPrefab;
-    [SerializeField] public GameObject playerPrefab;
-    [SerializeField] public GameObject projectilePrefab;
-    [SerializeField] public GameObject rangedEnemyPrefab;
-    [SerializeField] public GameObject sawTrapPrefab;
-    [SerializeField] public GameObject spawnPointPrefab;
-    [SerializeField] public GameObject spikeTrapPrefab;
-    [SerializeField] public GameObject trapPrefab;
-    [SerializeField] public GameObject victoryPrefab;
-    [SerializeField] public GameObject wallPrefab;
-    [SerializeField] public GameObject weaponPickupPrefab;
-    [SerializeField] public GameObject weaponPrefab;
+
+    [Header("Prefabs")]
+    public GameObject ammoPickupPGO;
+    public GameObject barrelPGO;
+    public GameObject boulderPGO;
+    public GameObject breakableWallPGO;
+    public GameObject breakEffectPGO;
+    public GameObject buttonPGO;
+    public GameObject checkpointPGO;
+    public GameObject cratePGO;
+    public GameObject doorPGO;
+    public GameObject elevatorPGO;
+    public GameObject flameTrapPGO;
+    public GameObject healthPickupPGO;
+    public GameObject leverPGO;
+    public GameObject meleeEnemyPGO;
+    public GameObject movingTempPlatformPGO;
+    public GameObject tempPlatformPGO;
+    public GameObject movingPlatformPGO;
+    public GameObject oneWayPlatformPGO;
+    public GameObject platformPathPGO;
+    public GameObject playerPGO;
+    public GameObject projectilePGO;
+    public GameObject rangedEnemyPGO;
+    public GameObject sawTrapPGO;
+    public GameObject spawnPointPGO;
+    public GameObject spikeTrapPGO;
+    public GameObject trapPGO;
+    public GameObject victoryPGO;
+    public GameObject wallPGO;
+    public GameObject weaponPickupPGO;
+    public GameObject weaponPGO;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        ammoPickupPGO ??= gameObject;
+        barrelPGO ??= gameObject;
+        boulderPGO ??= gameObject;
+        breakableWallPGO ??= gameObject;
+        breakEffectPGO ??= gameObject;
+        buttonPGO ??= gameObject;
+        checkpointPGO ??= gameObject;
+        cratePGO ??= gameObject;
+        doorPGO ??= gameObject;
+        elevatorPGO ??= gameObject;
+        flameTrapPGO ??= gameObject;
+        healthPickupPGO ??= gameObject;
+        leverPGO ??= gameObject;
+        meleeEnemyPGO ??= gameObject;
+        movingPlatformPGO ??= gameObject;
+        oneWayPlatformPGO ??= gameObject;
+        platformPathPGO ??= gameObject;
+        playerPGO ??= gameObject;
+        projectilePGO ??= gameObject;
+        rangedEnemyPGO ??= gameObject;
+        sawTrapPGO ??= gameObject;
+        spawnPointPGO ??= gameObject;
+        spikeTrapPGO ??= gameObject;
+        trapPGO ??= gameObject;
+        victoryPGO ??= gameObject;
+        wallPGO ??= gameObject;
+        weaponPickupPGO ??= gameObject;
+        weaponPGO ??= gameObject;
+        AssignDefaults(this, gameObject);
+    }
 }

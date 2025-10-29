@@ -5,7 +5,7 @@ using UnityEngine;
         typeof(Rigidbody2D)
     )
 ]
-public class BaseRigidbody2D : BaseNavMeshAgent
+public class BaseRigidbody2D : BasePlayerInput
 {
     [SerializeField] protected Rigidbody2D rb;
     protected override void Awake()
